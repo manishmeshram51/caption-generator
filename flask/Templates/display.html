@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Display image with caption </title>
+
+    <!-- Bootstrap -->
+    <link href="  {{ url_for('static',filename = 'css/bootstrap.min.css') }}  " rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+      p.caption{
+      font-family: Courier New, Monospace;
+      }
+
+      h2.head{
+      font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    
+    
+  <div class="container"  style="border:1px solid #cecece;">
+    <div class="row">
+      <br>
+      <div class="col-sm-1">
+      
+      </div>
+      
+      <div class="col-sm-10">
+        {% if result %}
+          <h2 class="head"> Image Captioning Using Ml </h2>
+          <br>
+          <p class="caption"> Email : {{ result.email }}</p>
+          <p class="caption"> Image label : {{ result.label }}</p>
+          <p class="caption"> Caption : {{ result.caption }}</p>
+          
+          {% else %}
+          <h1>Hello, World!</h1>
+
+        {% endif %}
+      </div>
+
+      <div class="col-sm-1">
+      
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-sm-1">
+        
+      </div>
+      <div class="col-sm-10">
+        
+        <div class="text-center">
+          <img src="    {{ url_for('static',filename = 'images/' + result.label  ) }}    " class="img-fluid" alt="..." width="500" height="500">
+        </div>
+        <br>
+
+      </div>
+      <div class="col-sm-1">
+        
+      </div>
+    </div>
+  </div>  
+
+
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="    {{url_for('static',filename = 'js/bootstrap.min.js'   )}} "></script>
+  </body>
+</html>

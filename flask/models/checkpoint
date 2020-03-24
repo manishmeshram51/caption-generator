@@ -1,0 +1,6 @@
+model_checkpoint_path: "/content/gdrive/My Drive/digitrec/weights"
+all_model_checkpoint_paths: "/content/gdrive/My Drive/digitrec/weights_8"
+all_model_checkpoint_paths: "/content/gdrive/My Drive/digitrec/weights_9"
+all_model_checkpoint_paths: "/content/gdrive/My Drive/digitrec/weights_10"
+all_model_checkpoint_paths: "/content/gdrive/My Drive/digitrec/weights_11"
+all_model_checkpoint_paths: "/content/gdrive/My Drive/digitrec/weights"
