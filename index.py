@@ -11,9 +11,10 @@ import numpy as np
 import cv2
 
 app = Flask(__name__) 
+UPLOAD_FOLDER = 'Static/images/'
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-
-   
 # method from app .py 
 # route http posts to this method
 @app.route('/api/test', methods=['POST'])
@@ -28,8 +29,7 @@ def test():
    cap = str(Captionizer.apply_model_to_image_raw_bytes(img))
 
    # build a response dict to send back to client
-   response = {'message': '{}'.format(cap)
-                }
+   response = {'message': '{}'.format(cap) }
 
    # encode response using jsonpickle
    response_pickled = jsonpickle.encode(response)
@@ -54,7 +54,7 @@ def upload():
       label = label + img_formate
 
       #save the image
-      photo.save(os.path.join('M:/projects/flask/Static/images', label))
+      photo.save(os.path.join(app.config['UPLOAD_FOLDER'], label))
 
       #main logic to call captionizer/api
 
